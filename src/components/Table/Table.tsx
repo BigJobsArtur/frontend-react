@@ -11,7 +11,8 @@ interface tableData {
 }
 
 const Table = () => {
-  const [post, setPost] = useState<tableData[]>([]);
+  const [post, setPost] = useState([]);
+  const [head, setHead] = useState(["titulo", "conteudo"]);
 
   useEffect(() => {
     api.get("posts").then((response) => setPost(response.data));
@@ -19,21 +20,25 @@ const Table = () => {
 
   return (
     <section className="">
-      <div className="container">
-        <h4>Últimas Postagens </h4>
+      <div className="">
+        <h4>Últimas Postagens</h4>
         <table>
-          <thead>
-            <th>Título</th>
-            <th>Conteúdo</th>
-          </thead>
-          <tbody>
-            {post.map((i) => (
-              <tr key={i.id}>
+          {/* <thead>
+            {head.map((item) => (
+              <tr>
+                <th>{item}</th>
+              </tr>
+            ))}
+          </thead> */}
+
+          {/* <tbody>
+            {post.map((i, index) => (
+              <tr key={index}>
                 <td>{i.title}</td>
                 <td>{i.body}</td>
               </tr>
             ))}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </section>
