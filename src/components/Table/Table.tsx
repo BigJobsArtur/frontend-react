@@ -14,10 +14,7 @@ const Table = () => {
   const [post, setPost] = useState<tableData[]>([]);
 
   useEffect(() => {
-    api.get("posts").then((response) => {
-      const result = response.data;
-      setPost(result);
-    });
+    api.get("posts").then((response) => setPost(response.data));
   }, []);
 
   return (
