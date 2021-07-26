@@ -12,7 +12,6 @@ interface TableData {
   title: string;
   body: string;
 }
-
 interface Pagination {
   total: number;
   pages: number;
@@ -31,12 +30,6 @@ const Table = () => {
       setPagination(response.data.meta.pagination);
     });
   }, []);
-
-  // useEffect(() => {
-  //   fetch("https://gorest.co.in/public/v1/posts")
-  //     .then((response) => response.json())
-  //     .then((res) => setPost(res.data));
-  // }, []);
 
   useEffect(() => {
     api.get(`posts?page=${currentPage}`).then((response) => {
@@ -65,13 +58,11 @@ const Table = () => {
                 <td className="posts">{i.body}</td>
               </tr>
             ))}
-
             <tr className="pagination-count">
               <td>
                 {`Exibindo ${pagination ? pagination.limit : 0} postagens `}
               </td>
               <td>
-                {/* Prevarrow */}
                 {pagination && pagination.page > 1 && (
                   <button
                     onClick={() => setCurrentPage((prevState) => prevState - 1)}
@@ -80,8 +71,6 @@ const Table = () => {
                   </button>
                 )}
               </td>
-
-              {/* Numbers */}
               <td className="pagination-numbers ">
                 {pagination && pagination.page > 1 && (
                   <button>{pagination.page - 1}</button>
@@ -95,8 +84,6 @@ const Table = () => {
                   <button>{pagination.page + 1}</button>
                 )}
               </td>
-
-              {/* Nextarrow */}
               <td>
                 {pagination && pagination.page < pagination.pages && (
                   <button
