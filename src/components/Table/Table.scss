@@ -3,11 +3,9 @@ section {
   margin: 30px auto;
   background-color: #fff;
   border-radius: 3px;
-
   div {
     padding: 11px;
   }
-
   h4 {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -15,5 +13,81 @@ section {
     color: #494949;
     margin: 25px 0px;
     padding-left: 5px;
+  }
+  thead {
+    background-color: #f0efef;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    th {
+      padding: 15px 0 15px 30px;
+    }
+  }
+
+  th {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #545454;
+  }
+  td {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2b2b2b;
+  }
+  td:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  tbody {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    color: #2b2b2b;
+    font-size: 14px;
+
+    tr {
+      border: 1px solid #f0efef;
+    }
+    td {
+      height: 60px !important;
+      overflow: hidden;
+      padding-left: 30px;
+    }
+    td.title {
+      width: 35%;
+    }
+    td.title p {
+      max-width: 40ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    td.posts {
+      width: 75%;
+      max-width: 25ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .pagination-numbers {
+      display: inline-flex;
+      height: fit-content !important;
+      margin: 15px -23px;
+    }
+    .current_page {
+      border: 2px solid #a3a3a3;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: #2b2b2b;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 0 10px;
+    }
   }
 }
