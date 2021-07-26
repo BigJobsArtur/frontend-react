@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import api from "../../services/api";
 
 import "./Table.scss";
 
@@ -11,34 +10,56 @@ interface tableData {
 }
 
 const Table = () => {
-  const [post, setPost] = useState([]);
-  const [head, setHead] = useState(["titulo", "conteudo"]);
+  const [post, setPost] = useState<tableData[]>([]);
+
+  // useEffect(() => {
+  //   api.get("posts").then((response) => setPost(response.data));
+  // }, []);
 
   useEffect(() => {
-    api.get("posts").then((response) => setPost(response.data));
+    fetch("https://gorest.co.in/public/v1/posts")
+      .then((response) => response.json())
+      .then((res) => setPost(res.data));
   }, []);
 
+  console.log(post);
   return (
-    <section className="">
-      <div className="">
+    <section>
+      <div>
         <h4>Últimas Postagens</h4>
         <table>
-          {/* <thead>
-            {head.map((item) => (
-              <tr>
-                <th>{item}</th>
-              </tr>
-            ))}
-          </thead> */}
+          <thead>
+            <tr>
+              <th>titulo</th>
+              <th>conteúdo</th>
+            </tr>
+          </thead>
+          {
+            // <thead>
+            //   {head.map((item) => (
+            //     <tr>
+            //       <th>{item}</th>
+            //     </tr>
+            //   ))}
+            // </thead>
+          }
 
           {/* <tbody>
-            {post.map((i, index) => (
-              <tr key={index}>
+            {post.map((i) => (
+              <tr key={i.id}>
                 <td>{i.title}</td>
                 <td>{i.body}</td>
               </tr>
             ))}
           </tbody> */}
+          <tbody>
+            {post.map((i) => (
+              <tr>
+                <td>{i.title}</td>
+                <td>{i.body}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </section>
